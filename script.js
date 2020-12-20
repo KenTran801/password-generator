@@ -9,6 +9,8 @@ var upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N
 
 var newPassword;
 
+var passwordOptions
+
 // Functions for password criteria (lowercase, uppercase, numeric, and/or special characters)
 generateBtn.addEventListener("click", function () {
 
@@ -40,9 +42,54 @@ generateBtn.addEventListener("click", function () {
 
   if (containNumbers === false && containCharacters === false && containUppercase === false && containLowercase === false) {
     alert("At least one of the password criteria must be selected.")
-  };
+  }
 
+  else if (containNumbers === true && containCharacters === true && containUppercase === true && containLowercase === true) {
+    choice = numbers + characters + upper + lower
+
+  }
+
+  else if (containNumbers === true && containCharacters === true && containUppercase === true && containLowercase === false) {
+    choice = numbers + characters + upper
+
+  }
+
+  else if (containNumbers === true && containCharacters === true && containUppercase === false && containLowercase === false) {
+    choice = numbers + characters
+
+  }
+
+  else if (containNumbers === true && containCharacters === false && containUppercase === false && containLowercase === false) {
+    choice = numbers 
+
+  }
+
+  else if (containNumbers === false && containCharacters === true && containUppercase === true && containLowercase === true) {
+    choice = characters + upper + lower
   
+  }
+
+  else if (containNumbers === false && containCharacters === true && containUppercase === true && containLowercase === false) {
+    choice = characters + upper
+  
+  }
+
+  else if (containNumbers === false && containCharacters === true && containUppercase === false && containLowercase === false) {
+    choice = characters
+  
+  }
+
+
+  else if (containNumbers === false && containCharacters === false && containUppercase === true && containLowercase === true) {
+    choice = upper + lower
+  
+  }
+
+  else if (containNumbers === false && containCharacters === false && containUppercase === false && containLowercase === true) {
+    choice = lower
+  
+  }
+
 
 });
 
