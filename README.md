@@ -14,4 +14,4 @@ Link to repository on GitHub: https://github.com/KenTran801/responsive-portfolio
 Link to the deployed link: https://kentran801.github.io/password-generator/
 
 ## Video demoonstration of application
-<iframe src="https://drive.google.com/file/d/1c7O0otqj_68vwxwtj-rioEms_7TKkyHQ/preview" width="640" height="480"></iframe>
+![password-generator](https://user-images.githubusercontent.com/72709180/102731356-d9e44000-42f4-11eb-85c0-fb95b690cb26.gif)
