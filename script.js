@@ -14,7 +14,6 @@ var password = []
 generateBtn.addEventListener("click", writePassword);
 
 // Write password to the #password input
-
 function writePassword() {
   var passwordLength = parseInt(prompt("Please select the length of your password. Choose a length between 8 and 128 characters."));
   if (passwordLength > 128 || passwordLength < 8) {
@@ -47,7 +46,6 @@ function writePassword() {
   }
 
   //Function for each crtieria - i.e. random uppercase letter, lowercase letter, number, special character
-
   for (var i = 0; i < passwordLength; i++) {
     if (containUppercase === true) {
       var randomNumber = Math.floor(Math.random() * 26)
