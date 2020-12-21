@@ -44,7 +44,7 @@ function writePassword() {
   if (containNumbers === false && containCharacters === false && containUppercase === false && containLowercase === false) {
     alert("At least one of the password criteria must be selected.")
   }
-  
+
   //Function for each crtieria - i.e. random uppercase letter, lowercase letter, number, special character
   for (var i = 0; i < passwordLength; i++) {
     if (containUppercase === true) {
@@ -65,7 +65,7 @@ function writePassword() {
     }
 
   };
-
+  // Generting random password and displaying in the text box
   password = password.slice(0, passwordLength)
   password = password.join("")
   document.querySelector("#password").innerHTML = password
