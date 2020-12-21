@@ -65,7 +65,7 @@ function writePassword() {
     }
 
   };
-  // Generting random password and displaying in the text box
+  // Generating random password and displaying in the text box
   password = password.slice(0, passwordLength)
   password = password.join("")
   document.querySelector("#password").innerHTML = password
