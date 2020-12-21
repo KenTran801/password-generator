@@ -4,14 +4,18 @@ var generateBtn = document.querySelector("#generate");
 // Password variables:
 var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 var characters = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "{", "}", "~"];
-var lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var lowercaseAlphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var uppercaseAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-var passwordOptions
+//New password
+var password = []
 
-// Functions for password criteria (lowercase, uppercase, numeric, and/or special characters)
-generateBtn.addEventListener("click", function () {
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
 
+// Write password to the #password input
+
+function writePassword() {
   var passwordLength = parseInt(prompt("Please select the length of your password. Choose a length between 8 and 128 characters."));
   if (passwordLength > 128 || passwordLength < 8) {
     passwordLength = alert("Please select a number in bewteen 8 and 128.");
@@ -42,97 +46,31 @@ generateBtn.addEventListener("click", function () {
     alert("At least one of the password criteria must be selected.")
   }
 
-  else if (containNumbers === true && containCharacters === true && containUppercase === true && containLowercase === true) {
-    // passwordOptions = numbers + characters + upper + lower
-    // for (var i = 0; i < passwordLength; i++){
-    //   let passwordOptions = Math.floor(Math.random() * passwordLength)
-    //   console.log(passwordOptions)
-    // }
-  }
+  //Function for each crtieria - i.e. random uppercase letter, lowercase letter, number, special character
 
-  else if (containNumbers === true && containCharacters === true && containUppercase === true && containLowercase === false) {
-    passwordOptions = numbers + characters + upper
+  for (var i = 0; i < passwordLength; i++) {
+    if (containUppercase === true) {
+      var randomNumber = Math.floor(Math.random() * 26)
+      password.push(uppercaseAlphabet[randomNumber])
+    }
+    if (containLowercase === true) {
+      var randomNumber = Math.floor(Math.random() * 26)
+      password.push(lowercaseAlphabet[randomNumber])
+    }
+    if (containNumbers === true) {
+      var randomNumber = Math.floor(Math.random() * numbers.length)
+      password.push(numbers[randomNumber])
+    }
+    if (containCharacters === true) {
+      var randomNumber = Math.floor(Math.random() * characters.length)
+      password.push(characters[randomNumber])
+    }
 
-  }
+  };
 
-  else if (containNumbers === true && containCharacters === true && containUppercase === false && containLowercase === true) {
-    passwordOptions = numbers + characters + lower
-
-  }
-
-  else if (containNumbers === true && containCharacters === false && containUppercase === true && containLowercase === true) {
-    passwordOptions = numbers + upper + lower
-
-  }
-
-  else if (containNumbers === true && containCharacters === true && containUppercase === false && containLowercase === false) {
-    passwordOptions = numbers + characters
-
-  }
-
-  else if (containNumbers === true && containCharacters === false && containUppercase === true && containLowercase === false) {
-    passwordOptions = numbers + upper
-
-  }
-
-  else if (containNumbers === true && containCharacters === false && containUppercase === false && containLowercase === true) {
-    passwordOptions = numbers + lower
-
-  }
-
-  else if (containNumbers === true && containCharacters === false && containUppercase === false && containLowercase === false) {
-    passwordOptions = numbers 
-
-  }
-
-  else if (containNumbers === false && containCharacters === true && containUppercase === true && containLowercase === true) {
-    passwordOptions = characters + upper + lower
+  password = password.slice(0, passwordLength)
+  password = password.join("")
+  document.querySelector("#password").innerHTML = password
   
-  }
-
-  else if (containNumbers === false && containCharacters === true && containUppercase === true && containLowercase === false) {
-    passwordOptions = characters + upper
-  
-  }
-
-  else if (containNumbers === false && containCharacters === true && containUppercase === false && containLowercase === true) {
-    passwordOptions = characters + lower
-  
-  }
-
-  else if (containNumbers === false && containCharacters === true && containUppercase === false && containLowercase === false) {
-    passwordOptions = characters
-  
-  }
-
-  else if (containNumbers === false && containCharacters === false && containUppercase === true && containLowercase === true) {
-    passwordOptions = upper + lower
-  
-  }
-
-  else if (containNumbers === false && containCharacters === false && containUppercase === true && containLowercase === false) {
-    passwordOptions = upper
-  
-  }
-
-  else if (containNumbers === false && containCharacters === false && containUppercase === false && containLowercase === true) {
-    passwordOptions = lower
-  
-  }
-
-
-});
-
-
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
