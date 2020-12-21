@@ -4,7 +4,7 @@ Objective: Create an application using Javascript to generate a random password 
 
 Password features:
 1. Password length is at least 8 characters and no more than 128 characters
-2. Password will contain one at least one of the criteria: lowercase, uppercase, numeric, and/or special characters 
+2. Password will contain at least one of the criteria: lowercase, uppercase, numeric, and/or special characters 
 3. Random password will be generated and displayed on the page
 
 ## Links
