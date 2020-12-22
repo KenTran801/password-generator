@@ -48,11 +48,11 @@ function writePassword() {
   //Function for each crtieria - i.e. random uppercase letter, lowercase letter, number, special character
   for (var i = 0; i < passwordLength; i++) {
     if (containUppercase === true) {
-      var randomNumber = Math.floor(Math.random() * 26)
+      var randomNumber = Math.floor(Math.random() * uppercaseAlphabet.length)
       password.push(uppercaseAlphabet[randomNumber])
     }
     if (containLowercase === true) {
-      var randomNumber = Math.floor(Math.random() * 26)
+      var randomNumber = Math.floor(Math.random() * lowercaseAlphabet.length)
       password.push(lowercaseAlphabet[randomNumber])
     }
     if (containNumbers === true) {
